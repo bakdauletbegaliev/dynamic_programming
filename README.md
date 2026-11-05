@@ -77,14 +77,6 @@ pom.xml                  Maven configuration
 - `operations` counts real recursion calls, computed DP cells, or actual character comparisons (including building the LPS array for KMP).
 - The input generator and operation counts are deterministic. Millisecond timings can change on another laptop because of the JVM and computer load.
 
-## Simple explanation for the defense
-
-**Edit Distance:** the minimum insertions, deletions, or replacements needed to turn one word into another. Recursion repeatedly solves the same problem, while DP stores useful previous answers. Two rows use less memory than a full table.
-
-**Naive vs KMP:** Naive restarts the search at every position. KMP uses the LPS array to know which prefix can still match after a mismatch. Both return all matches, including overlapping ones.
-
-**Experiment:** the expensive test for search is `AAAA...A` against `AAAA...AB`. Naive checks many A characters again for every position, but KMP skips that repeated work.
-
 ## AI-use acknowledgement
 
 ChatGPT assisted in preparing the Java implementations, experiment design, tests, plotting script, and report wording. The source code and generated experimental results are provided for review and should be understood before the defense.
